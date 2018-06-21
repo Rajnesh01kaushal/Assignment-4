@@ -11,12 +11,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner country,cities;
+    Spinner country,state;
 
-    String[] countries = {"USA","India","Chennai","Ahmedabad"};
-    String[] usacities = {"Delhi","Mumbai","Chennai","Ahmedabad"};
-    String[] indiancities = {"Jaipur","Mumbai","Chennai","Ahmedabad"};
-    String[] abccities = {"Delhi","Mumbai","Chennai","Ahmedabad"};
+    String[] countries = {"USA","India","Madras","Hyderabad"};
+    String[] usastate = {"Alabama","Alaska","Arizona","california"};
+    String[] indianstate = {"Bihar","Gujarat","Haryana","Assam"};
+    String[] madrasstate = {"Tamil Nadu","Costal Andhra","Rayalaseema","Karnataka"};
+    String[] hyderabadstate = {"Telangana"};
 
 
     @Override
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        final Spinner spinnerDropdown;
         country = findViewById(R.id.country);
-        cities = findViewById(R.id.cities);
+        state = findViewById(R.id.cities);
 
 //        String[] cities = {"Delhi","Mumbai","Chennai","Ahmedabad"};
 //        spinnerDropdown =(Spinner)findViewById(R.id.spinner);
@@ -41,13 +42,17 @@ public class MainActivity extends AppCompatActivity {
 //               int id=spinnerDropdown.getSelectedItemPosition();
 //                Toast.makeText(getBaseContext(),"selected cities:" + Position,Toast.LENGTH_SHORT).show();
                 if (Position == 0){
-                    setAdapter(usacities);
+                    setAdapter(usastate);
                 }
                 else if (Position == 1){
-                    setAdapter(indiancities);
+                    setAdapter(indianstate);
                 }
                 else if (Position == 2) {
-                    setAdapter(abccities);
+                    setAdapter(madrasstate);
+                }
+
+                if (Position == 3){
+                    setAdapter(hyderabadstate);
                 }
 
             }
@@ -67,6 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
 public void setAdapter(String[] citiesArray) {
     ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>( this,android.R.layout.simple_dropdown_item_1line,citiesArray);
-            cities.setAdapter(arrayAdapter);
+            state.setAdapter(arrayAdapter);
 }
 }
